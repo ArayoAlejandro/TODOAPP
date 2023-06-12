@@ -60,6 +60,11 @@ ul li span:hover {
   background-color: #3a3a3a;
 }
 
+form span {
+  color: red;
+  font-weight: 500;
+}
+
 main {
   position: relative;
   height: 100vh;

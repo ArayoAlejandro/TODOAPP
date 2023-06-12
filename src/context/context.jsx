@@ -9,7 +9,12 @@ export function CardProvider ({ children }) {
 
   return (
     <ContextCard.Provider value={{
-      card, setCard, modal, setModal, todo, setTodo
+      card,
+      setCard,
+      modal,
+      setModal,
+      todo,
+      setTodo
     }}
     >
       {children}
