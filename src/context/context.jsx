@@ -5,12 +5,7 @@ export const ContextCard = createContext()
 export function CardProvider ({ children }) {
   const [todo, setTodo] = useState([])
   const [modal, setModal] = useState(false)
-  const [card, setCard] = useState({
-    title: 'Sparko',
-    description: 'Sparko Huron',
-    date: new Date().toLocaleDateString(),
-    isComplete: true
-  })
+  const [card, setCard] = useState()
 
   return (
     <ContextCard.Provider value={{
