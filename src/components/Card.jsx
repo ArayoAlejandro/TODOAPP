@@ -14,12 +14,14 @@ export function Card ({ todo: { uuid, title, date, isCompleted } }) {
   return (
     <li className={isCompleted ? 'check' : ''}>
       <header>
-        <div>
-          <div className='check-input' onClick={() => changeCompleteCard(uuid)}>{isCompleted ? '✅' : '⬜'}</div>
-          <h2>{title}</h2>
-        </div>
-        <div>
+        <div className='info-card'>
+          <div>
+            <span className='check-input' onClick={() => changeCompleteCard(uuid)}>{isCompleted ? '✅' : '⬜'}</span>
+            <h2>{title}</h2>
+          </div>
           <p>{date}</p>
+        </div>
+        <div className='action-card'>
           <button onClick={handleClick}>Abrir</button>
           <button onClick={() => removeCard(date)}>Borrar</button>
         </div>

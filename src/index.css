@@ -46,20 +46,6 @@ ul li p {
   font-weight: 700;
 }
 
-ul li span {
-  cursor: pointer;
-  font-weight: 700;
-  background-color: #ff2525;
-  padding: 8px 12px;
-  border-radius: 12px;
-  color: white;
-  transition: 0.2s linear;
-}
-
-ul li span:hover {
-  background-color: #3a3a3a;
-}
-
 form span {
   color: red;
   font-weight: 500;
@@ -97,4 +83,22 @@ aside {
 
 .check-input {
   cursor: pointer ;
+}
+
+@media (max-width: 576px) {
+  ul li header {
+    flex-direction: column;
+  }
+
+  ul li header div.info-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  ul li header div.action-card{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+  }
 }
