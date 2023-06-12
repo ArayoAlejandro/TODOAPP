@@ -23,7 +23,7 @@ export const Form = () => {
           title: textInput,
           description: textArea,
           date: new Date().toLocaleDateString(),
-          isComplete: false
+          isCompleted: false
         }
       ]
     })

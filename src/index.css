@@ -88,10 +88,13 @@ aside {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 16rem;
-  
+  width: 40rem;
 }
 
 .modal-inner span {
   font-weight: 700;
+}
+
+.check-input {
+  cursor: pointer ;
 }

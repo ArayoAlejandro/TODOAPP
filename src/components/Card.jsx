@@ -1,28 +1,21 @@
-import { useState } from 'react'
 import { useCard } from '../hooks/useCard'
 
-export function Card ({ card: { uuid, title, date, description, isComplete } }) {
-  const [doneTodo, setDoneTodo] = useState(isComplete)
-  const { setCard, setModal, setTodo } = useCard()
+export function Card ({ todo: { uuid, title, date, isCompleted } }) {
+  const { setModal, setTodo, changeCompleteCard } = useCard()
 
   const removeCard = () => {
     setTodo(prev => prev.filter(e => e.uuid !== uuid))
   }
 
-  const completCard = () => {
-    setDoneTodo(prev => !prev)
-  }
-
   const handleClick = () => {
-    setCard({ title, date, description, isComplete })
-    setModal(true)
+    setModal({ isOpen: true, uuid })
   }
 
   return (
-    <li className={doneTodo ? 'check' : ''}>
+    <li className={isCompleted ? 'check' : ''}>
       <header>
         <div>
-          <div onClick={completCard}>{doneTodo ? '✅' : '📌'}</div>
+          <div className='check-input' onClick={() => changeCompleteCard(uuid)}>{isCompleted ? '✅' : '⬜'}</div>
           <h2>{title}</h2>
         </div>
         <div>

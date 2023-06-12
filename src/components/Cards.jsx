@@ -6,9 +6,9 @@ export function Cards () {
   return (
     <ul>
       {
-        todo && todo.map((card, key) => {
+        todo && todo.map((todo, key) => {
           return (
-            <Card key={key} card={card} />
+            <Card key={key} todo={todo} />
           )
         })
       }
