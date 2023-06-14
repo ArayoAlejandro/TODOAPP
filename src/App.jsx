@@ -1,18 +1,12 @@
 import './App.css'
 import { Cards } from './components/Cards'
-import { Form } from './components/Form'
-import { Modal } from './components/Modal'
-import { ModdaInner } from './components/ModalInner'
+import { Header } from './components/Header'
 
 function App () {
   return (
     <main>
-      <h1>TODO APP</h1>
-      <Form />
+      <Header />
       <Cards />
-      <Modal>
-        <ModdaInner />
-      </Modal>
     </main>
   )
 }

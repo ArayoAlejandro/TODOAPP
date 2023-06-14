@@ -1,15 +1,18 @@
 import { useState, createContext } from 'react'
+import { cardGetLocalStorage } from '../utils'
 
 export const ContextCard = createContext()
 
 export function CardProvider ({ children }) {
-  const [todo, setTodo] = useState([])
-  const [modal, setModal] = useState(false)
+  const initialCards = cardGetLocalStorage || []
+
+  const [todo, setTodo] = useState(initialCards)
+  const [id, setId] = useState()
 
   return (
     <ContextCard.Provider value={{
-      modal,
-      setModal,
+      id,
+      setId,
       todo,
       setTodo
     }}

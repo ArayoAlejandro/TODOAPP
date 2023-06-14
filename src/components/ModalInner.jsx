@@ -1,37 +1,34 @@
-import { useState } from 'react'
 import { useCard } from '../hooks/useCard'
 
 export const ModdaInner = () => {
-  const { setModal, changeCompleteCard, getCardUuid } = useCard()
+  const { changeCompleteCard, getCardId } = useCard()
+  const card = getCardId()
+  if (card === undefined) return
+
   const {
     title,
     description,
     date,
-    isComplete,
-    uuid
-  } = getCardUuid()
+    isCompleted,
+    id
+  } = card
 
-  const [comple, setComple] = useState(isComplete)
   const handleClick = () => {
-    setComple(prev => !prev)
-    changeCompleteCard(uuid)
+    changeCompleteCard(id)
   }
 
   return (
     <div className='modal-inner'>
       <header>
-        <h2>
-          <span onClick={handleClick} className='check-input '>{comple ? '✅' : '⬜'}</span>
-          {title}
-        </h2>
+        <div>
+          <span onClick={handleClick} className='check-input '>{isCompleted ? '✅' : '⬜'}</span>
+          <h2 className={isCompleted ? 'completed' : ''}>{title}</h2>
+        </div>
         <span>
           {date}
         </span>
-        <button onClick={() => setModal({ isOpen: false, uuid: '' })}>Close</button>
       </header>
-      <p>
-        {description}
-      </p>
+      <textarea rows='10' defaultValue={description} />
     </div>
   )
 }
