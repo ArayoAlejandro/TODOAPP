@@ -156,6 +156,7 @@ main>header {
   }
 
   ul li header div.action-card {
+    margin-bottom: 12px;
     width: 100%;
     display: flex;
     justify-content: start;
