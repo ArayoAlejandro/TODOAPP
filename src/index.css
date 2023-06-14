@@ -8,14 +8,27 @@ aside {
 
 h1,
 h2,
-h3 h4,
+h3,
+h4,
 h5,
 h6 {
   margin: 0;
 }
 
 h2.completed {
-  text-decoration: line-through;
+  position: relative;
+
+}
+
+h2.completed::before {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 4px;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color:var(--b-txt);
 }
 
 button {
@@ -31,14 +44,12 @@ ul {
 }
 
 ul li {
-  transition: 0.4s linear;
   border: 4px solid #e3e3e3;
   border-radius: 12px;
 }
 
 ul li::before {
   content: '';
-  transition: 0.4s linear;
   width: 0%;
 }
 
@@ -59,10 +70,6 @@ ul li header div {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-}
-
-ul li header h2 {
-  margin: 0;
 }
 
 ul li p {
