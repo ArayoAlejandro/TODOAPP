@@ -208,10 +208,6 @@ nav:hover p.active:not(:hover) {
   color: #242933;
 }
 
-
-
-nav p {}
-
 @media (max-width: 576px) {
   ul li header {
     flex-direction: column;
