@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-16" />
@@ -13,6 +13,66 @@
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
   <script>
+
+    window.onload = function () {
+      const body = document.body
+      const bodyMarginLeft = document.defaultView.getComputedStyle(body, "").getPropertyValue("margin-left").split("px")[0]
+      const nav = document.querySelector("nav")
+      const menuBackDrop = document.querySelector(".bg")
+
+      let leftActive
+      let widthActual
+      let activeElement
+
+      nav.childNodes.forEach((element) => {
+        element.addEventListener("mouseenter", (e) => {
+
+          const element = e.target.children[0]
+          const { left, top, width, height } = element.getBoundingClientRect()
+
+          if (activeElement !== element && activeElement !== undefined) {
+            activeElement.style.color = "#2e3440"
+          }
+
+          element.style.color = "#fff"
+
+          menuBackDrop.style.setProperty("--left", `${left - bodyMarginLeft}px`)
+          menuBackDrop.style.setProperty("--top", `${0}px`)
+          menuBackDrop.style.setProperty("--width", `${width}px`)
+          menuBackDrop.style.setProperty("--height", `${height}px`)
+          menuBackDrop.style.setProperty("--width", `${width}px`)
+        })
+
+        element.addEventListener("click", (e) => {
+          const { left, width } = e.target.getBoundingClientRect()
+          activeElement = e.target
+          e.target.style.color = "white"
+          leftActive = left
+          widthActual = width
+        })
+
+        element.addEventListener("mouseleave", (e) => {
+
+          const element = e.target.children[0]
+
+          if (activeElement !== element && activeElement !== undefined) {
+            activeElement.style.color = "#fff"
+          }
+
+          if (activeElement === element) {
+            element.style.color = "#fff"
+          } else {
+            element.style.color = "#2e3440"
+          }
+        })
+      })
+
+      nav.addEventListener("mouseleave", (e) => {
+        menuBackDrop.style.setProperty("--left", `${leftActive - bodyMarginLeft}px`)
+        menuBackDrop.style.setProperty("--width", `${widthActual}px`)
+      })
+    }
+    
     document.body.addEventListener('keydown', (event) => {
       if (event.key === "Enter" && (event.metaKey || event.ctrlKey)) {
         const form = event.target.form.children
@@ -21,4 +81,5 @@
     });
   </script>
 </body>
+
 </html>

@@ -32,8 +32,8 @@ html:focus-within {
 
 body {
     max-width: 70ch;
-    padding: 0 1rem;
-    margin: auto;
+    position: relative;
+    margin: 0 auto;
     background: var(--b-bg-1);
     font-family: var(--b-font-main);
     text-rendering: optimizeSpeed;

@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import { useCard } from '../hooks/useCard'
 import { Card } from './Card'
-import { Modal } from './Modal'
 import { ModdaInner } from './ModalInner'
+import { Modal } from './Modal'
 
-export function Cards () {
-  const { todo } = useCard()
+export const CardsList = ({ todo }) => {
+  if (todo.lenght === 0) return
   const [modal, setModal] = useState(false)
 
   const closeModal = () => {
@@ -16,14 +15,12 @@ export function Cards () {
     <>
       <ul>
         {
-        todo.length !== 0
-          ? todo.map((todo, key) => {
-            return (
-              <Card key={key} todo={todo} setModal={setModal} />
-            )
-          })
-          : 'Crea una nueva card'
-      }
+        todo.map((todo, key) => {
+          return (
+            <Card key={key} todo={todo} setModal={setModal} />
+          )
+        })
+        }
       </ul>
       <Modal isOpen={modal} closeModal={closeModal}>
         <ModdaInner />
