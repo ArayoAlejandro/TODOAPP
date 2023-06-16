@@ -196,9 +196,21 @@ nav p {
   color: #242933;
 }
 
-nav p {
-
+nav p:hover {
+  color: white;
 }
+
+nav p.active {
+  color: white
+}
+
+nav:hover p.active:not(:hover) {
+  color: #242933;
+}
+
+
+
+nav p {}
 
 @media (max-width: 576px) {
   ul li header {
