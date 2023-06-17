@@ -39,9 +39,9 @@
 
         element.addEventListener("click", (e) => {
           const { left, width } = e.target.getBoundingClientRect()
-         
+        
           if(activeElement !== undefined) {
-            activeElement.classlist.classList.add("active")
+            activeElement.classList.remove("active")
           }
           activeElement = e.target
           activeElement.classList.add("active");
