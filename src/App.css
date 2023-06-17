@@ -25,6 +25,7 @@ body {
     max-width: 70ch;
     position: relative;
     margin: 0 auto;
+    padding: 0  10px;
     background: var(--b-bg-1);
     font-family: var(--b-font-main);
     text-rendering: optimizeSpeed;

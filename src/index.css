@@ -206,14 +206,6 @@ nav p.active {
   text-decoration: underline;
 }
 
-@media (max-width: 768px){
-  nav p.active {
-    background-color: #242933;
-    font-weight: 700;
-  }
-}
-
-
 nav:hover p.active:not(:hover) {
   color: #242933;
 }
