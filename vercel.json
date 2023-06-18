@@ -1,7 +1,15 @@
 {
     "redirects": [
         {
-            "source": "/(.*)",
+            "source": "/working",
+            "destination": "/"
+        },
+        {
+            "source": "/all",
+            "destination": "/"
+        },
+        {
+            "source": "/working",
             "destination": "/"
         }
     ]
