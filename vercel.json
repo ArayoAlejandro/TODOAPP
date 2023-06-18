@@ -1,15 +1,7 @@
 {
     "redirects": [
         {
-            "source": "/working",
-            "destination": "/"
-        },
-        {
-            "source": "/all",
-            "destination": "/"
-        },
-        {
-            "source": "/made",
+            "source": "/(.*)",
             "destination": "/"
         }
     ]
