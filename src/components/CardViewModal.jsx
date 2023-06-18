@@ -1,6 +1,6 @@
 import { useCard } from '../hooks/useCard'
 
-export const ModdaInner = () => {
+export const CardViewModal = () => {
   const { changeCompleteCard, getCardId } = useCard()
   const card = getCardId()
   if (card === undefined) return
@@ -28,7 +28,7 @@ export const ModdaInner = () => {
           {date}
         </span>
       </header>
-      <textarea rows='10' defaultValue={description} />
+      <textarea rows='10' defaultValue={description} disabled />
     </div>
   )
 }

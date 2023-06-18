@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Card } from './Card'
-import { ModdaInner } from './ModalInner'
+import { CardViewModal } from './CardViewModal'
 import { Modal } from './Modal'
 
 export const CardsList = ({ todo }) => {
@@ -15,15 +15,15 @@ export const CardsList = ({ todo }) => {
     <>
       <ul>
         {
-        todo.map((todo, key) => {
-          return (
-            <Card key={key} todo={todo} setModal={setModal} />
-          )
-        })
+          todo.map((todo, key) => {
+            return (
+              <Card key={key} todo={todo} setModal={setModal} />
+            )
+          })
         }
       </ul>
       <Modal isOpen={modal} closeModal={closeModal}>
-        <ModdaInner />
+        <CardViewModal />
       </Modal>
     </>
   )

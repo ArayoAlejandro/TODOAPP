@@ -1,6 +1,5 @@
 import { useState, createContext } from 'react'
 import { cardGetLocalStorage } from '../utils'
-
 export const ContextCard = createContext()
 
 export function CardProvider ({ children }) {

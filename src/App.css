@@ -25,7 +25,7 @@ body {
     max-width: 70ch;
     position: relative;
     margin: 0 auto;
-    padding: 0  10px;
+    padding: 0 10px;
     background: var(--b-bg-1);
     font-family: var(--b-font-main);
     text-rendering: optimizeSpeed;
@@ -377,12 +377,6 @@ progress {
 [aria-disabled=true i],
 [disabled] {
     cursor: not-allowed
-}
-
-:focus,
-details:focus-within {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--b-focus)
 }
 
 @media(prefers-reduced-motion: reduce) {
