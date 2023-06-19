@@ -9,7 +9,9 @@ import { CardPage } from './components/CardPage'
 import lightbulb from './assets/lightbulb-outre.svg'
 import check from './assets/check-outre.svg'
 import alert from './assets/alert-outre.svg'
+import { useCard } from './hooks/useCard'
 function App () {
+  const { cardFiltersTodoIsCompleted, cardFiltersTodoNotCompleted, todo } = useCard()
   const router = createBrowserRouter([
     {
       path: '/',
@@ -18,15 +20,27 @@ function App () {
       children: [
         {
           path: CardPagesRouters.all,
-          element: <CardPage imgOutre={alert} description='Añade ya una nueva tarea!' />
+          element: <CardPage
+            imgOutre={alert}
+            description='Añade ya una nueva tarea!'
+            todo={todo}
+                   />
         },
         {
           path: CardPagesRouters.working,
-          element: <CardPage imgOutre={check} description='No hay tareas pendientes, felicidades!' />
+          element: <CardPage
+            imgOutre={check}
+            description='No hay tareas pendientes, felicidades!'
+            todo={cardFiltersTodoNotCompleted()}
+                   />
         },
         {
           path: CardPagesRouters.made,
-          element: <CardPage imgOutre={lightbulb} description='No hay tareas terminadas empieza o acaba alguna' />
+          element: <CardPage
+            imgOutre={lightbulb}
+            description='No hay tareas terminadas empieza o acaba alguna'
+            todo={cardFiltersTodoIsCompleted()}
+                   />
         }
       ]
     }

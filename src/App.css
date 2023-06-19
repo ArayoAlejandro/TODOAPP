@@ -22,6 +22,7 @@ html:focus-within {
 }
 
 body {
+    margin: 0;
     background: var(--b-bg-1);
     font-family: var(--b-font-main);
     text-rendering: optimizeSpeed;

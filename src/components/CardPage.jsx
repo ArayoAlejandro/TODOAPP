@@ -2,9 +2,7 @@ import { useCard } from '../hooks/useCard'
 
 import { CardsList } from './CardList.'
 
-export function CardPage ({ imgOutre, description }) {
-  const { todo } = useCard()
-
+export function CardPage ({ imgOutre, description, todo }) {
   const AlertIconPage = () => {
     return (
       <div className='info-all-cards'>

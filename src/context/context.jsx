@@ -6,12 +6,9 @@ export function CardProvider ({ children }) {
   const initialCards = cardGetLocalStorage || []
 
   const [todo, setTodo] = useState(initialCards)
-  const [id, setId] = useState()
 
   return (
     <ContextCard.Provider value={{
-      id,
-      setId,
       todo,
       setTodo
     }}

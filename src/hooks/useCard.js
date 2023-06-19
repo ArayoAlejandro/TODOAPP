@@ -3,7 +3,7 @@ import { ContextCard } from '../context/context'
 import { cardSetLocalStorage } from '../utils'
 
 export const useCard = () => {
-  const { id, setId, todo, setTodo } = useContext(ContextCard)
+  const { todo, setTodo } = useContext(ContextCard)
 
   const changeCompleteCard = (id) => {
     const newTodo = todo
@@ -32,11 +32,19 @@ export const useCard = () => {
     return todo.find((c) => c.id === id)
   }
 
+  const cardFiltersTodoNotCompleted = () => {
+    return todo.filter(todo => todo.isCompleted === false)
+  }
+
+  const cardFiltersTodoIsCompleted = () => {
+    return todo.filter(todo => todo.isCompleted === true)
+  }
+
   return {
-    id,
-    setId,
     todo,
     setTodo,
+    cardFiltersTodoIsCompleted,
+    cardFiltersTodoNotCompleted,
     removeCard,
     changeCompleteCard,
     getCardId
