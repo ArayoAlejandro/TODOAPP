@@ -1,5 +1,3 @@
-import { useCard } from '../hooks/useCard'
-
 import { CardsList } from './CardList.'
 
 export function CardPage ({ imgOutre, description, todo }) {
