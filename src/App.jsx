@@ -44,9 +44,10 @@ function App () {
         }}
       />
       <main>
-
-        <Header />
-        <RouterProvider router={router} />
+        <div>
+          <Header />
+          <RouterProvider router={router} />
+        </div>
         <footer>
           <p>Made with ❤️ by  👉<a href='https://aarayo-portfolio.vercel.app/' target='_blank' rel='noreferrer'>Alejandro Arayo</a></p>
           <p>Ilustrations by  👉<a href='https://www.charco.design/' target='_blank' rel='noreferrer'>Charco</a></p>
