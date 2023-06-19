@@ -3,10 +3,9 @@ import { CardPagesRouters } from '../utils'
 import { useMenu } from '../hooks/useMenu'
 
 export const Menu = () => {
-  const { handleClick, handleMouseEnter, handleMouseLeave, menu } = useMenu()
+  const { handleClick, handleMouseEnter, handleMouseLeave } = useMenu()
   return (
     <>
-      <div className='bg' style={{ transform: `translate(${menu.left}px, -7px)`, width: menu.width, height: menu.height }} />
 
       <nav id='menu' onMouseLeave={handleMouseLeave}>
         <div>

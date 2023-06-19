@@ -16,10 +16,6 @@ export const enableClickBody = () => {
   bodyElement.classList.remove('disabled')
 }
 
-export const bodyMarginLeft =
-  Number(document.defaultView.getComputedStyle(document.body, '').getPropertyValue('margin-left').split('px')[0]) +
-  Number(document.defaultView.getComputedStyle(document.body, '').getPropertyValue('padding-left').split('px')[0])
-
 export const CardPagesRouters = {
   all: 'all',
   working: 'working',

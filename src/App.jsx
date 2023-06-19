@@ -33,16 +33,26 @@ function App () {
   ])
 
   return (
-    <main>
-      <div>
+    <>
+      <div
+        className='bg'
+        style={{
+          top: 'var(--top)',
+          left: 'var(--left)',
+          width: 'var(--width)',
+          height: 'var(--height)'
+        }}
+      />
+      <main>
+
         <Header />
         <RouterProvider router={router} />
-      </div>
-      <footer>
-        <p>Made with ❤️ by  👉<a href='https://aarayo-portfolio.vercel.app/' target='_blank' rel='noreferrer'>Alejandro Arayo</a></p>
-        <p>Ilustrations by  👉<a href='https://www.charco.design/' target='_blank' rel='noreferrer'>Charco</a></p>
-      </footer>
-    </main>
+        <footer>
+          <p>Made with ❤️ by  👉<a href='https://aarayo-portfolio.vercel.app/' target='_blank' rel='noreferrer'>Alejandro Arayo</a></p>
+          <p>Ilustrations by  👉<a href='https://www.charco.design/' target='_blank' rel='noreferrer'>Charco</a></p>
+        </footer>
+      </main>
+    </>
   )
 }
 export default App

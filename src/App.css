@@ -22,10 +22,6 @@ html:focus-within {
 }
 
 body {
-    max-width: 70ch;
-    position: relative;
-    margin: 0 auto;
-    padding: 0 10px;
     background: var(--b-bg-1);
     font-family: var(--b-font-main);
     text-rendering: optimizeSpeed;
@@ -37,6 +33,13 @@ body {
     overflow-wrap: break-word;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-text-size-adjust: 100%
+}
+
+main {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 70ch;
+    position: relative;
 }
 
 h1,
