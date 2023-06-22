@@ -6,7 +6,6 @@ export const Menu = () => {
   const { handleClick, handleMouseEnter, handleMouseLeave } = useMenu()
   return (
     <>
-
       <nav id='menu' onMouseLeave={handleMouseLeave}>
         <div>
           <NavLink

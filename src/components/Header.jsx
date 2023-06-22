@@ -12,7 +12,7 @@ export const Header = () => {
   return (
     <>
       <header>
-        <h1>TODO APP</h1>
+        <h1>TO-DO APP</h1>
         <button onClick={() => setModal(true)}>
           Nueva tarea
         </button>

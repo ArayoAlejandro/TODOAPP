@@ -1,6 +1,13 @@
+import { useCard } from '../hooks/useCard'
 import { CardsList } from './CardList'
 
-export function CardPage ({ imgOutre, description, todo }) {
+export function EndCardPage ({ imgOutre, description, todo }) {
+  const { deleteAllCards } = useCard()
+
+  const handleClick = () => {
+    deleteAllCards()
+  }
+
   const IconPage = () => {
     return (
       <div className='info-all-cards'>
@@ -14,11 +21,20 @@ export function CardPage ({ imgOutre, description, todo }) {
     )
   }
 
+  const List = () => {
+    return (
+      <div className='end-cards-list'>
+        <CardsList todo={todo} />
+        <button onClick={handleClick} className='delete-button'>Delete</button>
+      </div>
+    )
+  }
+
   return (
     <>
       {
         todo.length !== 0
-          ? <CardsList todo={todo} />
+          ? <List />
           : <IconPage />
       }
     </>

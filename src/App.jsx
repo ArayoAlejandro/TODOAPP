@@ -10,6 +10,7 @@ import lightbulb from './assets/lightbulb-outre.svg'
 import check from './assets/check-outre.svg'
 import alert from './assets/alert-outre.svg'
 import { useCard } from './hooks/useCard'
+import { EndCardPage } from './components/EndCardPage.'
 function App () {
   const { cardFiltersTodoIsCompleted, cardFiltersTodoNotCompleted, todo } = useCard()
   const router = createBrowserRouter([
@@ -36,7 +37,7 @@ function App () {
         },
         {
           path: CardPagesRouters.made,
-          element: <CardPage
+          element: <EndCardPage
             imgOutre={lightbulb}
             description='No hay tareas terminadas empieza o acaba alguna'
             todo={cardFiltersTodoIsCompleted()}

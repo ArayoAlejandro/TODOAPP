@@ -319,7 +319,16 @@ footer p {
 footer a {
   color: #242933;
   font-weight: 700;
+}
 
+.end-cards-list {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.end-cards-list .delete-button {
+  background-color: #ff3737;
 }
 
 @media (max-width: 576px) {

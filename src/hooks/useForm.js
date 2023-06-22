@@ -5,7 +5,7 @@ import { cardSetLocalStorage, enableClickBody } from '../utils'
 
 const MAX_CHAR_INPUT = 20
 
-export const useForm = ({ closeModal }) => {
+export const useForm = ({ closeModal = undefined }) => {
   const { setTodo } = useCard()
   const [input, setInput] = useState()
   const [number, setNumber] = useState(MAX_CHAR_INPUT)
@@ -16,7 +16,7 @@ export const useForm = ({ closeModal }) => {
     setNumber(MAX_CHAR_INPUT - input.length)
   }, [input])
 
-  const onChange = (e) => {
+  const onChange = e => {
     e.preventDefault()
     if (e.target.value.length <= MAX_CHAR_INPUT) {
       setInput(e.target.value)
@@ -24,6 +24,11 @@ export const useForm = ({ closeModal }) => {
     } else {
       setError('El título es demasiado grande')
     }
+  }
+
+  const closeModalExist = () => {
+    if (closeModal === undefined) return
+    closeModal()
   }
 
   const handleSubmit = e => {
@@ -36,8 +41,7 @@ export const useForm = ({ closeModal }) => {
     }
     e.target.reset()
     enableClickBody()
-    closeModal()
-
+    closeModalExist()
     setTodo(prev => {
       const newCards =
           [
