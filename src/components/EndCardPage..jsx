@@ -4,10 +4,6 @@ import { CardsList } from './CardList'
 export function EndCardPage ({ imgOutre, description, todo }) {
   const { deleteAllCards } = useCard()
 
-  const handleClick = () => {
-    deleteAllCards()
-  }
-
   const IconPage = () => {
     return (
       <div className='info-all-cards'>
@@ -25,7 +21,7 @@ export function EndCardPage ({ imgOutre, description, todo }) {
     return (
       <div className='end-cards-list'>
         <CardsList todo={todo} />
-        <button onClick={handleClick} className='delete-button'>Delete</button>
+        <button onClick={deleteAllCards} className='delete-button'>Delete</button>
       </div>
     )
   }
