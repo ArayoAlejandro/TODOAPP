@@ -1,52 +1,13 @@
 import './App.css'
 import { Header } from './components/Header'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Menu } from './components/Menu'
-import { CardPagesRouters } from './utils'
-import { Loader } from './components/Loader'
 import { CardPage } from './components/CardPage'
-
-import lightbulb from './assets/lightbulb-outre.svg'
-import check from './assets/check-outre.svg'
 import alert from './assets/alert-outre.svg'
-import { useCard } from './hooks/useCard'
-import { EndCardPage } from './components/EndCardPage.'
-function App () {
-  const { cardFiltersTodoIsCompleted, cardFiltersTodoNotCompleted, todo } = useCard()
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Menu />,
-      loader: async () => <Loader />,
-      children: [
-        {
-          path: CardPagesRouters.all,
-          element: <CardPage
-            imgOutre={alert}
-            description='Añade ya una nueva tarea!'
-            todo={todo}
-                   />
-        },
-        {
-          path: CardPagesRouters.working,
-          element: <CardPage
-            imgOutre={check}
-            description='No hay tareas pendientes, felicidades!'
-            todo={cardFiltersTodoNotCompleted()}
-                   />
-        },
-        {
-          path: CardPagesRouters.made,
-          element: <EndCardPage
-            imgOutre={lightbulb}
-            description='No hay tareas terminadas empieza o acaba alguna'
-            todo={cardFiltersTodoIsCompleted()}
-                   />
-        }
-      ]
-    }
-  ])
+import { useFilter } from './hooks/useFilters'
+import { Footer } from './components/Footer'
 
+function App () {
+  const { filteredTodos, filterSelected, setFiltersSelected } = useFilter()
   return (
     <>
       <div
@@ -61,12 +22,14 @@ function App () {
       <main>
         <div>
           <Header />
-          <RouterProvider router={router} />
+          <Menu setFilter={setFiltersSelected} filterSelected={filterSelected} />
+          <CardPage
+            imgOutre={alert}
+            description='Añade ya una nueva tarea!'
+            todo={filteredTodos}
+          />
         </div>
-        <footer>
-          <p>Made with ❤️ by  👉<a href='https://aarayo-portfolio.vercel.app/' target='_blank' rel='noreferrer'>Alejandro Arayo</a></p>
-          <p>Ilustrations by  👉<a href='https://www.charco.design/' target='_blank' rel='noreferrer'>Charco</a></p>
-        </footer>
+        <Footer />
       </main>
     </>
   )

@@ -1,19 +1,15 @@
 import { Modal } from './Modal'
 import { Form } from './Form'
-import { useState } from 'react'
+import { useModal } from '../hooks/useModal'
 
 export const Header = () => {
-  const [modal, setModal] = useState(false)
-
-  const closeModal = () => {
-    setModal(false)
-  }
+  const { modal, closeModal, openModal } = useModal()
 
   return (
     <>
       <header>
         <h1>TO-DO APP</h1>
-        <button onClick={() => setModal(true)}>
+        <button onClick={openModal}>
           Nueva tarea
         </button>
       </header>

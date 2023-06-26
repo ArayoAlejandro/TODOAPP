@@ -1,25 +1,24 @@
-import { v4 as uuidv4 } from 'uuid'
 import { useState, useEffect } from 'react'
 import { useCard } from './useCard'
-import { cardSetLocalStorage, enableClickBody } from '../utils'
+import { enableClickBody } from '../utils'
 
 const MAX_CHAR_INPUT = 20
 
 export const useForm = ({ closeModal = undefined }) => {
-  const { setTodo } = useCard()
-  const [input, setInput] = useState()
-  const [number, setNumber] = useState(MAX_CHAR_INPUT)
+  const { addToCard } = useCard()
+  const [inputChar, setInputChar] = useState()
+  const [maxChar, setmaxChar] = useState(MAX_CHAR_INPUT)
   const [error, setError] = useState()
 
   useEffect(() => {
-    if (input?.length === undefined) return
-    setNumber(MAX_CHAR_INPUT - input.length)
-  }, [input])
+    if (inputChar?.length === undefined) return
+    setmaxChar(MAX_CHAR_INPUT - inputChar.length)
+  }, [inputChar])
 
   const onChange = e => {
     e.preventDefault()
     if (e.target.value.length <= MAX_CHAR_INPUT) {
-      setInput(e.target.value)
+      setInputChar(e.target.value)
       setError('')
     } else {
       setError('El título es demasiado grande')
@@ -42,24 +41,11 @@ export const useForm = ({ closeModal = undefined }) => {
     e.target.reset()
     enableClickBody()
     closeModalExist()
-    setTodo(prev => {
-      const newCards =
-          [
-            ...prev,
-            {
-              id: uuidv4(),
-              title: textInput,
-              description: textArea,
-              date: new Date().toLocaleDateString(),
-              isCompleted: false
-            }
-          ]
-
-      cardSetLocalStorage(newCards)
-
-      return newCards
+    addToCard({
+      title: textInput,
+      description: textArea
     })
   }
 
-  return { number, error, handleSubmit, onChange, input }
+  return { maxChar, error, handleSubmit, onChange, inputChar, setInputChar }
 }

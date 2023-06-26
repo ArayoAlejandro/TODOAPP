@@ -1,44 +1,54 @@
-import { NavLink, Outlet } from 'react-router-dom'
 import { CardPagesRouters } from '../utils'
 import { useMenu } from '../hooks/useMenu'
 
-export const Menu = () => {
+export const Menu = ({ setFilter, filterSelected }) => {
   const { handleClick, handleMouseEnter, handleMouseLeave } = useMenu()
+
+  const handleClickAncor = (e, filter) => {
+    e.preventDefault()
+    setFilter(filter)
+    handleClick(e, filter)
+  }
+
   return (
-    <>
-      <nav id='menu' onMouseLeave={handleMouseLeave}>
-        <div>
-          <NavLink
-            className={({ isActive }) => isActive ? 'active' : ''}
-            to={CardPagesRouters.all}
-            onClick={e => handleClick(e, CardPagesRouters.all)}
-            onMouseEnter={handleMouseEnter}
-          >
-            TODOS
-          </NavLink>
-        </div>
-        <div>
-          <NavLink
-            className={({ isActive }) => isActive ? 'active' : ''}
-            to={CardPagesRouters.working}
-            onClick={e => handleClick(e, CardPagesRouters.working)}
-            onMouseEnter={handleMouseEnter}
-          >
-            TRABAJANDO
-          </NavLink>
-        </div>
-        <div>
-          <NavLink
-            className={({ isActive }) => isActive ? 'active' : ''}
-            to={CardPagesRouters.made}
-            onClick={e => handleClick(e, CardPagesRouters.made)}
-            onMouseEnter={handleMouseEnter}
-          >
-            ACABADOS
-          </NavLink>
-        </div>
-      </nav>
-      <Outlet />
-    </>
+    <nav id='menu' onMouseLeave={handleMouseLeave}>
+      <ul>
+        <AncorMenu
+          handleClickAncor={handleClickAncor}
+          handleMouseEnter={handleMouseEnter}
+          page={CardPagesRouters.all}
+          title='TODOS'
+          activeFilter={filterSelected}
+        />
+        <AncorMenu
+          handleClickAncor={handleClickAncor}
+          handleMouseEnter={handleMouseEnter}
+          page={CardPagesRouters.working}
+          title='TRABAJANDO'
+          activeFilter={filterSelected}
+        />
+        <AncorMenu
+          handleClickAncor={handleClickAncor}
+          handleMouseEnter={handleMouseEnter}
+          page={CardPagesRouters.made}
+          title='ACABADOS'
+          activeFilter={filterSelected}
+        />
+      </ul>
+    </nav>
+  )
+}
+
+const AncorMenu = ({ handleClickAncor, handleMouseEnter, page, title, activeFilter }) => {
+  return (
+    <li>
+      <a
+        className={activeFilter === page ? 'active' : ''}
+        onClick={e => handleClickAncor(e, page)}
+        onMouseEnter={handleMouseEnter}
+      >
+        {title}
+      </a>
+    </li>
   )
 }

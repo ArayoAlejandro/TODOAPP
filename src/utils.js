@@ -21,3 +21,14 @@ export const CardPagesRouters = {
   working: 'working',
   made: 'made'
 }
+
+export const sliceCardWithID = (id, state) => {
+  const newTodo = state
+  const cardIndex = newTodo.findIndex(c => c.id === id)
+  const cardSelectId = state.find((c) => c.id === id)
+
+  const part1 = newTodo.slice(0, cardIndex)
+  const part2 = newTodo.slice(cardIndex + 1, newTodo[newTodo.length])
+
+  return { cardSelectId, part1, part2 }
+}

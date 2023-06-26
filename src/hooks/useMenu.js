@@ -1,22 +1,18 @@
 import { useState, useEffect } from 'react'
 
-import { useNavigate } from 'react-router-dom'
-import { CardPagesRouters, menuGetLocalStorage, menuSetLocalStorage } from '../utils'
+import { menuGetLocalStorage, menuSetLocalStorage } from '../utils'
 
 export const useMenu = () => {
   const [menu, setMenu] = useState({})
   const [menuActive, setMenuActive] = useState({})
 
-  const navigate = useNavigate()
-
   useEffect(() => {
     if (menuGetLocalStorage === null) {
-      const fistP = document.querySelector('nav>div>a')
-      fistP.classList.add('active')
-      const { left, width, height, top } = fistP.getBoundingClientRect()
+      const firstP = document.querySelector('nav>ul>li>a')
+      firstP.classList.add('active')
+      const { left, width, height, top } = firstP.getBoundingClientRect()
 
       setMenu({ left, width, height, top })
-      navigate(CardPagesRouters.all)
     } else {
       const menuLS = menuGetLocalStorage
 
@@ -27,7 +23,6 @@ export const useMenu = () => {
         width: menuLS.menuPosition.width,
         height: menuLS.menuPosition.height
       })
-      navigate(menuLS.page)
     }
   }, [])
 
