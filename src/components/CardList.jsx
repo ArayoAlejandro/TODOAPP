@@ -4,16 +4,18 @@ import { CardViewModal } from './CardViewModal'
 import { Modal } from './Modal'
 import { useModal } from '../hooks/useModal'
 import { useCard } from '../hooks/useCard'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 export const CardsList = ({ todo }) => {
   if (todo.lenght === 0) return
   const { removeCardsCompleted } = useCard()
   const { modal, closeModal, openModal } = useModal()
   const [card, setCard] = useState({})
+  const [parent] = useAutoAnimate(/* optional config */)
 
   return (
     <>
-      <ul className='cards'>
+      <ul className='cards' ref={parent}>
         {
           todo.map((todo, key) => {
             return (

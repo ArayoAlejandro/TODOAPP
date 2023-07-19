@@ -15,12 +15,12 @@ export function CardPage ({ imgOutre, description, todo }) {
   }
 
   return (
-    <>
+    <div>
       {
         todo.length !== 0
           ? <CardsList todo={todo} />
           : <IconPage />
       }
-    </>
+    </div>
   )
 }
