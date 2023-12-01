@@ -5,9 +5,7 @@ export function CardPage ({ imgOutre, description, todo }) {
     return (
       <div className='info-all-cards'>
         <div className='info-all-cards-inner'>
-          <a href='https://www.charco.design/outre-quirky-icons' target='_blank' rel='noreferrer'>
-            <img width='700px' src={imgOutre} alt='Outre icon made by Charco' />
-          </a>
+          <img width='700px' src={imgOutre} alt='Outre icon made by Charco' />
           <p>{description}</p>
         </div>
       </div>

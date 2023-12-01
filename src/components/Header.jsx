@@ -10,7 +10,7 @@ export const Header = () => {
       <header>
         <h1>TO-DO APP</h1>
         <button onClick={openModal}>
-          Nueva tarea
+          NUEVA TAREA
         </button>
       </header>
 

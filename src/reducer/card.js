@@ -18,6 +18,7 @@ const UPDATE_STATE_BY_ACTION = {
     const isCompleted = false
 
     const newCard = { title, description, id, date, isCompleted }
+    cardSetLocalStorage([...state, newCard])
     return [...state, newCard]
   },
   [CARD_ACTION_TYPES.REMOVE_CARD]: (state, action) => {
