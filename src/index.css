@@ -255,6 +255,7 @@ nav {
 }
 
 nav a {
+  font-size: 0.8rem;
   transition: all 0.8s;
   margin: 0;
   padding: 8px 20px;
